@@ -1,0 +1,13 @@
+.mainDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.leftDiv {
+    flex: 3;
+    margin-right: 2rem;
+}
+
+.rightDiv {
+    flex: 1;
+}
