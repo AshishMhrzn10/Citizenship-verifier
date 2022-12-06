@@ -2,6 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
 const app = express();
 dotenv.config();
 mongoose.connect(process.env.MONGO_URI, {
@@ -49,7 +54,7 @@ const UserInfo = new mongoose.model("UserInfo", userInfoSchema);
 
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 //Routes
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
